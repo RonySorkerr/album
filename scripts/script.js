@@ -9,19 +9,24 @@ const loadData = async () =>{
 }
 
 const loadCards = (data) => {
-    data.forEach(cards => {
+    data.forEach(card => {
         // getting the cards container
         const cardsContianer = document.getElementById('cardsContainer');
-        cardsContianer.classList = `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5`
-        cardsContianer.innerHTML = `
-        <div class="card w-full bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-        </div>
-        <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-      </div>
-        `
+        
+        const cards = document.createElement('div')
+        cards.classList = ``
+        cards.innerHTML = `
+            <div class="card w-full bg-base-100 shadow-xl">
+                <div class="card-body">
+                  <h2 class="card-title"></h2>
+                  <p>${card.title}</p>
+                </div>
+                <figure><img src="${card.thumbnailUrl}" alt="Shoes" /></figure>
+              </div>
+        `;
+        cardsContianer.appendChild(cards)
+
+
     });
 }
 
